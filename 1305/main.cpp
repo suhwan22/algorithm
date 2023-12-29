@@ -1,41 +1,45 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
-using namespace std;
+std::vector<int> getPartialMatch(std::string& search);
 
 int main()
 {
-    int len;
-    string input;
-    
-    cin >> len;
-    cin >> input;
-    
-    if (len == 1) {
-        cout << 1;
+  std::string input;
+  int len;
+
+  std::cin >> len;
+  std::cin >> input;
+
+  if (len == 1) {
+        std::cout << 1;
         return 0;
+  }
+  auto pi = getPartialMatch(input);
+  std::cout << len - pi[len - 1];
+}
+
+std::vector<int> getPartialMatch(std::string& search){
+    int m = search.size();
+    std::vector<int> pi(m, 0);
+    
+    int begin = 1, matched = 0;
+    
+    while(begin + matched < m){
+        if(search[begin + matched] == search[matched]){
+            matched++;
+            pi[begin + matched - 1] = matched;
+        }
+        else{
+            if(matched == 0)
+                begin++;
+            else{
+                begin += matched - pi[matched - 1];
+                matched = pi[matched - 1];
+            }
+        }
     }
     
-    int min = 1;
-    
-    for (int i = 1, j = 0; i < len; i++, j++) {
-        if (j >= min)
-            j = 0;
-        if (input[j] == input[i]) {
-          continue ;
-        }
-        else {
-          if (i + 1 >= len / 2) {
-            i = min;
-            min++;
-            j = -1;
-          }
-          else {
-            j = -1;
-            min = i + 1;
-          }
-        }
-    }
-    cout << min;
-    return 0;
+    return pi;
 }
