@@ -6,7 +6,10 @@ using namespace std;
 
 int board[8][8] = {};
 queue<pair<int ,int>> q;
-int min = 2147483647;
+int min = 2147483647; // 이렇게 하면 cctv가 아에 없는 경우는 처리가 안되니 빈칸의 개수로 설정하면 좋음
+
+// 그냥 전수조사 하면 되는 문제,, 근데 cctv 개수가 제한이 없으면 시간이 너무 올래 걸려서 다른 방식 있나 했는데
+// 8개로 제한이 있네.. 그러면 깊어봤자 4^8승이라 ㅎ..
 
 #define DIR_N 0
 #define DIR_W 1
