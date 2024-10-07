@@ -116,10 +116,12 @@ int main()
         // cout << "nx: " << nx << ", ny: " << ny << "\n";
         if (board[nx][ny] < 0)
         {
+          // 벽뚫기 부분
           for (int j = 0; j < 4; j++)
           {
             // cout << "i: " << i << ", j: " << j << "\n";
             if ((i > 1) ? (i - 2 != j) : (j != i + 2))
+            // 이미 왔던 곳으로 되돌아 가는 것을 막기위한 if 문
             {
               cnx = nx + dx[j];
               cny = ny + dy[j];
