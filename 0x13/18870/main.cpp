@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <set>
 #include <algorithm>
 
 using namespace std;
@@ -30,15 +29,14 @@ int main()
   // 원래 배열 냇두고 복사해서 써야겠다.
   // 매번 그때 그때 찾는게 편하긴 하겠다.
 
-  set<int> temp;
-  for (int i = 0; i < n; i++)
-    temp.insert(arr[i]);
-
-  vector<int> arr1;
-  for (auto e : temp)
-    arr1.push_back(e);
-
   // arr[i] 가 arr1 에서 lower_bound? 찾으면 될거같긴 한데?
+  // 근데 중복을 제거 해야 되네
+
+  vector<int> arr1 = arr;
+  sort(arr1.begin(), arr1.end());
+  arr1.erase(unique(arr1.begin(), arr1.end()), arr1.end());
+
+  // unique 를 이용해서 중복을 제거하는 방식
 
   for (int i = 0; i < n; i++)
   {
