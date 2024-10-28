@@ -27,10 +27,12 @@ int main()
     q.pop();
     if (cur.second < 0)
     {
-      // 동생인 경우
-      if (visit[(-1 * cur.second) % 2 == 1])
+      if (visit[(-1 * cur.second - 1) % 2][m])
+      {
+        cout << -1 * cur.second - 1;
+        return 0; 
+      }
       m = cur.first - cur.second;
-      // cout << "동생: " << m << "\n";
       if (m > 500000)
       {
         cout << -1;
@@ -40,20 +42,18 @@ int main()
     }
     else
     {
-      // cout << "수빈: " << cur.first << "\n";
-      if (cur.first == m)
-      {
-        cout << cur.second;
-        return 0;
-      }
       for (int i = 0; i < 2; i++)
       {
         nx = cur.first + dx[i];
         if (nx < 0 || nx > 500000) continue;
+        if (visit[(cur.second + 1) % 2][nx]) continue;
+        visit[(cur.second + 1) % 2][nx] = true;
         q.push({nx, cur.second + 1});
       }
       nx = cur.first * 2;
       if (nx < 0 || nx > 500000) continue;
+      if (visit[(cur.second + 1) % 2][nx]) continue;
+      visit[(cur.second + 1) % 2][nx] = true;
       q.push({nx, cur.second + 1});
     }
   }
