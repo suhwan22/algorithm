@@ -4,154 +4,166 @@
 using namespace std;
 
 int board[1500][1500] = {};
-bool vis[1500][1500] = {};
+int r, c;
+int cnt = 0;
+pair<int, int> swan[2];
+queue<pair<int, int>> sq;
+bool swanVisit[1500][1500] = {};
+bool swanNum[1500000] = {};
 
-void printBoard(int r, int c);
-
-struct PPair
-{
-  int x;
-  int y;
-  int pre;
-  int step;
-};
-
-class Comp
-{
-  public:
-    bool operator() (PPair a, PPair b)
-    {
-      if (a.step > b.step)
-        return true;
-      if (a.step == b.step)
-      {
-        if (board[a.x][a.y] > board[b.x][b.y])
-          return true;
-      }
-      return false;
-    }
-};
+bool swanBFS();
+void printBoard();
 
 int main()
 {
   ios::sync_with_stdio(0);
   cin.tie(0);
-
-  int r, c;
   cin >> r >> c;
   string input;
   int cnt = 0;
-  pair<int, int> swan[2];
+  queue<pair<int, int>> q;
+  queue<pair<int, int>> q2;
+  q2.push({-1, -1});
+  bool visit[1500][1500] = {};
+  
   for (int i = 0; i < r; i++)
   {
     cin >> input;
     for (int j = 0; j < c; j++)
     {
-      if (input[j] == '.')
-        board[i][j] = 0;
-      else if (input[j] == 'X')
+      if (input[j] == 'X')
         board[i][j] = -1;
-      else if (input[j] == 'L')
+      else
       {
-        swan[cnt].first = i;
-        swan[cnt++].second = j;
         board[i][j] = 0;
+        q2.push({i, j});
+        if (input[j] == 'L')
+        {
+          swan[cnt].first = i;
+          swan[cnt++].second = j;
+        }
       }
     }
   }
 
-  int swanNum[2];
-  queue<pair<int, int>> q;
-  priority_queue<PPair, vector<PPair>, Comp> pq;
+  cnt = -1;
   pair<int, int> cur;
-  PPair temp;
+  int nx, ny;
   int dx[4] = {1, 0, -1, 0};
   int dy[4] = {0, 1, 0, -1};
-  int nx, ny;
-  cnt = -1;
+
   for (int i = 0; i < r; i++)
   {
     for (int j = 0; j < c; j++)
     {
-      if (board[i][j] != -1 && vis[i][j] == false)
+      if (visit[i][j] == false && board[i][j] != -1)
       {
-        vis[i][j] = true;
         cnt++;
+        visit[i][j] = true;
         board[i][j] = cnt;
         q.push({i, j});
-        temp.x = i;
-        temp.y = j;
-        temp.step = 0;
-        temp.pre = cnt;
-        pq.push(temp);
         while (!q.empty())
         {
           cur = q.front();
           q.pop();
-          for (int i = 0; i < 2; i++)
-          {
-            if (swan[i].first == cur.first && swan[i].second == cur.second)
-              swanNum[i] = cnt;
-          }
+          if (cur.first == swan[0].first && cur.second == swan[0].second)
+            swanNum[cnt] = true;
           for (int i = 0; i < 4; i++)
           {
             nx = cur.first + dx[i];
             ny = cur.second + dy[i];
             if (nx < 0 || ny < 0 || nx >= r || ny >= c) continue;
-            if (vis[nx][ny] || board[nx][ny] == -1) continue;
-            vis[nx][ny] = true;
+            if (visit[nx][ny] || board[nx][ny] == -1) continue;
             board[nx][ny] = cnt;
+            visit[nx][ny] = true;
             q.push({nx, ny});
-            temp.x = nx;
-            temp.y = ny;
-            temp.step = 0;
-            temp.pre = cnt;
-            pq.push(temp);
           }
         }
       }
     }
   }
-  // printBoard(r, c);
-  // cout << swanNum[0] << " " << swanNum[1] << "\n";
-  if (swanNum[0] == swanNum[1])
+
+  sq.push({swan[0].first, swan[0].second});
+  swanVisit[swan[0].first][swan[0].second] = true;
+
+  cnt = 0;
+  while (!q2.empty())
   {
-    cout << 0;
-    return 0;
+    cur = q2.front();
+    q2.pop();
+    if (cur.first == -1)
+    {
+      // printBoard();
+      if (swanBFS())
+        break;
+      q2.push({-1, -1});
+      cnt++;
+    }
+    else
+    {
+      for (int i = 0; i < 4; i++)
+      {
+        nx = cur.first + dx[i];
+        ny = cur.second + dy[i];
+        if (nx < 0 || ny < 0 || nx >= r || ny >= c) continue;
+        if (swanNum[board[cur.first][cur.second]])
+          sq.push({nx, ny});
+        if (visit[nx][ny]) continue;
+        board[nx][ny] = board[cur.first][cur.second];
+        visit[nx][ny] = true;
+        q2.push({nx, ny});
+      }
+    }
   }
 
-  // PPair pcur;
-  while (!pq.empty())
-  {
-    cout << pq.top().pre << "\n";
-    pq.pop();
-  }
-  // while (!pq.empty())
-  // {
-  //   pcur = pq.top();
-  //   pq.pop();
-  //   if (pcur.pre != board[pcur.x][pcur.y]) continue;
-  //   for (int i = 0; i < 4; i++)
-  //   {
-  //     nx = pcur.x + dx[i];
-  //     ny = pcur.y + dy[i];
-  //     if (nx < 0 || ny < 0 || nx >= r || ny >= c) continue;
-  //     if (vis[nx][ny]) continue;
-
-  //   }
-  // }
+  cout << cnt;
 
   return 0;
 }
 
-void printBoard(int r, int c)
+bool swanBFS()
 {
-  cout << "-------------------\n";
+  pair<int, int> cur;
+
+  int nx, ny;
+  int dx[4] = {1, 0, -1, 0};
+  int dy[4] = {0, 1, 0, -1};
+
+  while (!sq.empty())
+  {
+    cur = sq.front();
+    sq.pop();
+    swanNum[board[cur.first][cur.second]] = true;
+    if (cur.first == swan[1].first && cur.second == swan[1].second)
+      return true;
+    for (int i = 0; i < 4; i++)
+    {
+      nx = cur.first + dx[i];
+      ny = cur.second + dy[i];
+      if (nx < 0 || ny < 0 || nx >= r || ny >= c) continue;
+      if (swanVisit[nx][ny] || board[nx][ny] == -1) continue;
+      swanVisit[nx][ny] = true;
+      sq.push({nx, ny});
+    }
+  }
+  return false;
+}
+
+void printBoard()
+{
+  cout << "---------------------------\n";
   for (int i = 0; i < r; i++)
   {
     for (int j = 0; j < c; j++)
-      cout << board[i][j] << "   ";
+    {
+      if (i == swan[0].first && j == swan[0].second)
+        cout << 'L';
+      else if (i == swan[1].first && j == swan[1].second)
+        cout << 'U';
+      else
+        cout << (board[i][j] == -1 ? 'X' : '.');
+    }
     cout << "\n";
   }
-  cout << "-------------------\n";
+  cout << "---------------------------\n";
 }
