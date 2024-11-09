@@ -14,8 +14,8 @@
 | 0x06 | [BFS](0x06_BFS/README.md) | ![100%](https://progress-bar.xyz/30/?scale=30&title=progress&width=500&color=babaca&suffix=/30) |
 | 0x07 | [DFS](0x07_DFS/README.md) | |
 | 0x08 | [재귀](0x08_Recursion/README.md) | ![100%](https://progress-bar.xyz/9/?scale=10&title=progress&width=500&color=babaca&suffix=/10) |
-| 0x09 | [백트래킹](0x09_BackTracking/README.md) | ![100%](https://progress-bar.xyz/16/?scale=20&title=progress&width=500&color=babaca&suffix=/20) |
-| 0x0A | [시뮬레이션](0x0A_Simulation/README.md) | ![100%](https://progress-bar.xyz/10/?scale=61&title=progress&width=500&color=babaca&suffix=/61) |
+| 0x09 | [백트래킹](0x09_BackTracking/README.md) | ![100%](https://progress-bar.xyz/20/?scale=20&title=progress&width=500&color=babaca&suffix=/20) |
+| 0x0A | [시뮬레이션](0x0A_Simulation/README.md) | ![100%](https://progress-bar.xyz/14/?scale=61&title=progress&width=500&color=babaca&suffix=/61) |
 | 0x0B | [정렬](0x0B_Sort/README.md) | ![100%](https://progress-bar.xyz/4/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
 | 0x0C | [다이나믹 프로그래밍](0x0C_DP/README.md) | ![100%](https://progress-bar.xyz/16/?scale=44&title=progress&width=500&color=babaca&suffix=/44) |
 | 0x0D | [그리디](0x0D_Greedy/README.md) | ![100%](https://progress-bar.xyz/4/?scale=17&title=progress&width=500&color=babaca&suffix=/17) |
