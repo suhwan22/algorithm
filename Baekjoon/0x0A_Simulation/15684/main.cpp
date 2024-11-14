@@ -5,9 +5,9 @@ using namespace std;
 // 최대 경우의 수  (2 ≤ N ≤ 10, 1 ≤ H ≤ 30, 0 ≤ M ≤ (N-1)×H)
 // 에서 M의 최대값이 270이고
 // 270개 중에서 1개 고르는 경우 270C1 + 2개 고르는 경우 270C2 + 3개 고르는 경우 270C3
-// == 3280725
+// => 3280725
 
-bool edge[11][31] = {};
+bool edge[31][11] = {};
 int n, m, h;
 int min = -1;
 
@@ -27,27 +27,22 @@ int main()
     edge[x][y] = true;
   }
 
+  if (isValid())
+  {
+    cout << 0;
+    return 0;
+  }
   for (int i = 1; i <= h; i++)
   {
     for (int j = 1; j < n; j++)
     {
       if (edge[i][j]) continue;
       edge[i][j] = true;
-      if (isValid())
-      {
-        cout << 1;
-        return 0;
-      }
-      else
-        dfs(i, j, 1);
-      if (::min != -1)
-      {
-        cout << ::min;
-        return 0;
-      }
+      dfs(i, j, 1);
       edge[i][j] = false;
     }
   }
+  cout << ::min;
 
   return 0;
 }
@@ -56,21 +51,18 @@ void dfs(int x, int y, int sel)
 {
   if (sel > 3)
     return ;
-  if (::min != -1)
-    return ;
+  if (isValid())
+  {
+    ::min = ::min == -1 ? sel : (::min > sel ? sel : ::min);
+    return;
+  }
   for (; x <= h; x++)
   {
     for (; y < n; y++)
     {
       if (edge[x][y]) continue;
       edge[x][y] = true;
-      if (isValid())
-      {
-        ::min = sel + 1;
-        return;
-      }
-      else
-        dfs(x, y, sel + 1);
+      dfs(x, y, sel + 1);
       edge[x][y] = false;
     }
     y = 0;
