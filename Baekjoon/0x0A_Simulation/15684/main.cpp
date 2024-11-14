@@ -1,0 +1,97 @@
+#include <iostream>
+
+using namespace std;
+
+// 최대 경우의 수  (2 ≤ N ≤ 10, 1 ≤ H ≤ 30, 0 ≤ M ≤ (N-1)×H)
+// 에서 M의 최대값이 270이고
+// 270개 중에서 1개 고르는 경우 270C1 + 2개 고르는 경우 270C2 + 3개 고르는 경우 270C3
+// == 3280725
+
+bool edge[11][31] = {};
+int n, m, h;
+int min = -1;
+
+bool isValid();
+void dfs(int x, int y, int sel);
+
+int main()
+{
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cin >> n >> m >> h;
+
+  int x, y;
+  for (int i = 0; i < m; i++)
+  {
+    cin >> x >> y;
+    edge[x][y] = true;
+  }
+
+  for (int i = 1; i <= h; i++)
+  {
+    for (int j = 1; j < n; j++)
+    {
+      if (edge[i][j]) continue;
+      edge[i][j] = true;
+      if (isValid())
+      {
+        cout << 1;
+        return 0;
+      }
+      else
+        dfs(i, j, 1);
+      if (::min != -1)
+      {
+        cout << ::min;
+        return 0;
+      }
+      edge[i][j] = false;
+    }
+  }
+
+  return 0;
+}
+
+void dfs(int x, int y, int sel)
+{
+  if (sel > 3)
+    return ;
+  if (::min != -1)
+    return ;
+  for (; x <= h; x++)
+  {
+    for (; y < n; y++)
+    {
+      if (edge[x][y]) continue;
+      edge[x][y] = true;
+      if (isValid())
+      {
+        ::min = sel + 1;
+        return;
+      }
+      else
+        dfs(x, y, sel + 1);
+      edge[x][y] = false;
+    }
+    y = 0;
+  }
+}
+
+bool isValid()
+{
+  int line;
+  for (int i = 1; i <= n; i++)
+  {
+    line = i;
+    for (int j = 1; j <= h; j++)
+    {
+      if (edge[j][line])
+        line++;
+      else if (edge[j][line - 1])
+        line--;
+    }
+    if (line != i)
+      return false;
+  }
+  return true;
+}
