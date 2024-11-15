@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// 부르트포스로 풀었다.
+// DP로 푼 코드는 퇴사2#15486 에서 볼 수 있다.
+
 pair<int, int> schedule[16] = {};
 bool used[16] = {};
 int n;
