@@ -30,8 +30,6 @@ int main()
   while (cnt < n)
   {
     cur = pq.top();
-    // cout << "cur: " << cur.first << ", " << cur.second << "\n";
-    // cout << "cnt : " << cnt << "\n";
     pq.pop();
     if (isGroup[cur.second]) continue;
     isGroup[cur.second] = true;
