@@ -5,7 +5,7 @@
 ## 목록
 | 번호 | 분류 | 진행도 |
 | :--: | :--: | :--: |
-| 0x00 | [배열](0x00_Array/README.md) | ![100%](https://progress-bar.xyz/4/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
+| 0x00 | [배열](0x00_Array/README.md) | ![100%](https://progress-bar.xyz/4/?scale=4&title=progress&width=500&color=babaca&suffix=/8) |
 | 0x01 | [연결 리스트](0x01_LinkedList/README.md) | ![100%](https://progress-bar.xyz/3/?scale=3&title=progress&width=500&color=babaca&suffix=/3) |
 | 0x02 | [스택](0x02_Stack/README.md) | ![100%](https://progress-bar.xyz/8/?scale=8&title=progress&width=500&color=babaca&suffix=/8) |
 | 0x03 | [큐](0x03_Queue/README.md) | ![100%](https://progress-bar.xyz/3/?scale=3&title=progress&width=500&color=babaca&suffix=/3) |
