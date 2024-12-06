@@ -12,6 +12,7 @@ commit-each:
 			dir=$$(echo $$file | cut -d'/' -f3); \
 			git add $$file; \
 			git commit -m "$(COMMIT_SOVLED_PREFIX)$$dir solved with c++"; \
+			echo "commit => $(COMMIT_SOVLED_PREFIX)$$dir solved with c++"; \
 		done; \
 	else \
 		echo "No new files to commit."; \
