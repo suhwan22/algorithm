@@ -19,17 +19,17 @@
 | 0x0B | [정렬](0x0B_Sort/README.md) | ![100%](https://progress-bar.xyz/17/?scale=17&title=progress&width=500&color=babaca&prefix=(17/17)&suffix=%25) |
 | 0x0C | [다이나믹 프로그래밍](0x0C_DP/README.md) | ![100%](https://progress-bar.xyz/27/?scale=44&title=progress&width=500&color=babaca&prefix=(27/44)&suffix=%25) |
 | 0x0D | [그리디](0x0D_Greedy/README.md) | ![100%](https://progress-bar.xyz/8/?scale=17&title=progress&width=500&color=babaca&prefix=(8/17)&suffix=%25) |
-| 0x0E | [수학](0x0E_Math/README.md) | ![100%](https://progress-bar.xyz/1/?scale=39&title=progress&width=500&color=babaca&prefix=(1/39)&suffix=%25) |
+| 0x0E | [수학](0x0E_Math/README.md) | ![100%](https://progress-bar.xyz/10/?scale=39&title=progress&width=500&color=babaca&prefix=(10/39)&suffix=%25) |
 | 0x0F | [이분탐색](0x0F_BinarySearch/README.md) | ![100%](https://progress-bar.xyz/7/?scale=21&title=progress&width=500&color=babaca&prefix=(7/21)&suffix=%25) |
+| 0x10 | [투 포인터](0x10_TwoPointer) | ![100%](https://progress-bar.xyz/2/?scale=11&title=progress&width=500&color=babaca&prefix=(2/11)&suffix=%25) |
 | 0x11 | [해시](0x11_Hash/README.md) | ![100%](https://progress-bar.xyz/1/?scale=10&title=progress&width=500&color=babaca&prefix=(1/10)&suffix=%25) |
 | 0x12 | [이진 검색 트리](0x12_BinarySearchTree/README.md) | ![100%](https://progress-bar.xyz/1/?scale=7&title=progress&width=500&color=babaca&prefix=(1/7)&suffix=%25) |
-| 0x14 | [그래프](0x14_Graph/README.md) | ![100%](https://progress-bar.xyz/2/?scale=13&title=progress&width=500&color=babaca&prefix=(2/13)&suffix=%25) |
-| 0x19 | [다익스트라 알고리즘](0x19_Dijkstra/README.md) | ![0%](https://progress-bar.xyz/3/?scale=14&title=progress&width=500&color=babaca&prefix=(3/14)&suffix=%25) |
+| 0x13 | [우선순위 큐](0x13_PriorityQueue/README.md) | ![100%](https://progress-bar.xyz/5/?scale=8&title=progress&width=500&color=babaca&prefix=(5/8)&suffix=%25) |
+| 0x14 | [그래프](0x14_Graph/README.md) | ![100%](https://progress-bar.xyz/4/?scale=13&title=progress&width=500&color=babaca&prefix=(4/13)&suffix=%25) |
+| 0x15 | [트리](0x15_Tree/README.md) | ![100%](https://progress-bar.xyz/4/?scale=13&title=progress&width=500&color=babaca&prefix=(4/13)&suffix=%25) |
+| 0x16 | [위상 정렬](0x16_TopologicalSort/README.md) | ![100%](https://progress-bar.xyz/2/?scale=7&title=progress&width=500&color=babaca&prefix=(2/7)&suffix=%25) |
+| 0x17 | [최소 신장 트리](0x17_MinimumSpanningTree/README.md) | ![100%](https://progress-bar.xyz/5/?scale=9&title=progress&width=500&color=babaca&prefix=(5/9)&suffix=%25) |
+| 0x19 | [다익스트라 알고리즘](0x19_Dijkstra/README.md) | ![0%](https://progress-bar.xyz/4/?scale=14&title=progress&width=500&color=babaca&prefix=(4/14)&suffix=%25) |
 | 0x1A | [KMP](0x1A_KMP/README.md) | ![12.5%](https://progress-bar.xyz/1/?scale=8&title=progress&width=500&color=babaca&prefix=(1/8)&suffix=%25) |
-<!-- | 0x10 | [투 포인터](0x10_TwoPointer) | ![100%](https://progress-bar.xyz/0/?scale=11&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
-<!-- | 0x13 | [우선순위 큐](0x13_PriorityQueue/README.md) | ![100%](https://progress-bar.xyz/0/?scale=8&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
-<!-- | 0x15 | [트리](0x15_Tree/README.md) | ![100%](https://progress-bar.xyz/0/?scale=13&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
-<!-- | 0x16 | [위상 정렬](0x16_TopologicalSort/README.md) | ![100%](https://progress-bar.xyz/0/?scale=7&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
-<!-- | 0x17 | [최소 신장 트리](0x17_MinimumSpanningTree/README.md) | ![100%](https://progress-bar.xyz/0/?scale=9&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
 <!-- | 0x18 | [플로이드 알고리즘](0x18_FloydWarshall/README.md) | ![100%](https://progress-bar.xyz/0/?scale=15&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
 <!-- | 0x1B | [트라이](0x1B_Trie/README.md) | ![0%](https://progress-bar.xyz/0/?scale=10&title=progress&width=500&color=babaca&prefix=(8/8)&suffix=%25) | -->
