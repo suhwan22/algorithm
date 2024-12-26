@@ -27,7 +27,7 @@ int main()
 			D[1][i] = board[1][i] + max(D[0][i-1], D[2][i-1]);
 			D[2][i] = max(D[0][i-1], D[1][i-1]);
 		}
-		cout << max(max(D[0][n-1], D[1][n-1]), D[2][n-1]) << "\n";
+		cout << max(D[0][n-1], D[1][n-1]) << "\n";
 	}
 
 	return 0;
