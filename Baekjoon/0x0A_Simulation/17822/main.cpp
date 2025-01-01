@@ -4,6 +4,8 @@
 using namespace std;
 
 int n, m, t;
+
+// 원판 정보
 int disk[51][52] = {};
 
 int delAdj();
@@ -58,6 +60,7 @@ int main()
 	return 0;
 }
 
+// 인접한 원소를 지우기 위한 bfs함수
 int delAdj()
 {
 	queue<pair<int, int>> q;
@@ -108,6 +111,7 @@ int delAdj()
 	return cnt;
 }
 
+// 평균 계산 후 +1, -1 해주는 함수
 void routine()
 {
 	int sum = 0;
