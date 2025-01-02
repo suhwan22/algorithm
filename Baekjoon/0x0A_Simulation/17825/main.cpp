@@ -1,5 +1,4 @@
 #include <iostream>
-#include <queue>
 
 using namespace std;
 
@@ -19,8 +18,6 @@ int move(int &line, int &cur, int step);
 void dfs(int sum, int n);
 bool isValid(int sel);
 
-vector<pair<int, int>> seq;
-
 int main()
 {
 	cin.tie(0)->sync_with_stdio(0);
@@ -32,11 +29,7 @@ int main()
 		int tline = line[i];
 		int ret = move(line[i], cur[i], dice[0]);
 		if (isValid(i))
-		{
-			seq.push_back({i, ret});
 			dfs(ret, 1);
-			seq.pop_back();
-		}
 		cur[i] = tcur;
 		line[i] = tline;
 	}
@@ -59,11 +52,7 @@ void dfs(int sum, int n)
 		int tline = line[i];
 		int ret = move(line[i], cur[i], dice[n]);
 		if (isValid(i))
-		{
-			seq.push_back({i, sum + ret});
 			dfs(sum + ret, n + 1);
-			seq.pop_back();
-		}
 		cur[i] = tcur;
 		line[i] = tline;
 	}
