@@ -17,16 +17,12 @@ int main()
 	while (st <= en && en <= n)
 	{
 		if (sum > m)
-		{
-			sum -= arr[st];
-			st++;
-		}
+			sum -= arr[st++];
 		else if (sum <= m)
 		{
 			if (sum == m)
 				cnt++;
-			sum += arr[en];
-			en++;
+			sum += arr[en++];
 		}
 	}
 	cout << cnt;
