@@ -12,35 +12,24 @@ int main()
 	cin.tie(0)->sync_with_stdio(0);
 	cin >> n;
 	int input;
-	cin >> input;
-	lq.push(input);
-	cout << lq.top() << "\n";
-	for (int i = 2; i <= n; i++)
+	for (int i = 1; i <= n; i++)
 	{
 		cin >> input;
-		if (i % 2 == 0)
-		{
-			if (lq.top() <= input)
-				rq.push(input);
-			else
-			{
-				rq.push(lq.top());
-				lq.pop();
-				lq.push(input);
-			}	
-		}
+		if (lq.empty() || input < lq.top())
+			lq.push(input);
 		else
+			rq.push(input);
+		if (lq.size() > rq.size() + 1)
 		{
-			if (rq.top() > input)
-				lq.push(input);
-			else
-			{
-				lq.push(rq.top());
-				rq.pop();
-				rq.push(input);
-			}
+			rq.push(lq.top());
+			lq.pop();
 		}
-		cout << min(lq.top(), rq.top()) << "\n";
+		else if (rq.size() > lq.size())
+		{
+			lq.push(rq.top());
+			rq.pop();
+		}
+		cout << lq.top() << "\n";
 	}
 
 	return 0;
