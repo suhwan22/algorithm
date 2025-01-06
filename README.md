@@ -1,6 +1,6 @@
 # algorithm
 
-알고리즘을 공부하면서 풀었던 beakjoon, codetree, programmers, softeer 문제들 입니다.
+알고리즘을 공부하면서 풀었던 [Beakjoon](https://guiltless-break-8cc.notion.site/boj?v=bb6f434deb2a4815b882084c62d1975c&pvs=4), codetree, programmers, softeer 문제들 입니다.
 
 ## 목록
 | 번호 | 분류 | 진행도 |
