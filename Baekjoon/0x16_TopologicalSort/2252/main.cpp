@@ -17,11 +17,8 @@ int main()
 	for (int i = 0; i < m; i++)
 	{
 		cin >> u >> v;
-		if (find(adj[u].begin(), adj[u].end(), v) == adj[u].end())
-		{
-			adj[u].push_back(v);
-			indegree[v]++;
-		}
+		adj[u].push_back(v);
+		indegree[v]++;
 	}
 	for (int i = 1; i <= n; i++)
 	{
