@@ -24,7 +24,7 @@ int main()
 				if (k > b / i)
 					break;
 			}
-			}
+		}
 	}
 	cout << cnt;
 
