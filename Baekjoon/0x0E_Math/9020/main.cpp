@@ -16,22 +16,11 @@ int main()
 	cin >> t;
 	while (t--)
 	{
-		int n, k = 1;
+		int n, k = 0;
 		cin >> n;
-		if (prime[n / 2] == 0)
-			cout << n / 2 << " " << n / 2 << "\n";
-		else
-		{
-			while (1)
-			{
-				if (prime[n / 2 - k] == 0 && prime[n / 2 + k] == 0)
-				{
-					cout << n / 2 - k << " " << n / 2 + k << "\n";
-					break;
-				}
-				k++;
-			}
-		}		
+		while (prime[n / 2 - k] != 0 || prime[n / 2 + k] != 0)
+			k++;
+		cout << n / 2 - k << " " << n / 2 + k << "\n";
 	}
 	return 0;
 }
