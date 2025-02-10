@@ -43,7 +43,7 @@ int main()
 
 	for (int i = 0; i < n * n; i++)
 	{
-		int st1 = 0, en1 = n * n - 1;
+		int st1 = 0, en1 = n * n;
 		while (st1 < en1)
 		{
 			int mid = (st1 + en1) / 2;
@@ -53,7 +53,7 @@ int main()
 			else
 				en1 = mid;
 		}
-		int st2 = 0, en2 = n * n - 1;
+		int st2 = 0, en2 = n * n;
 		while (st2 < en2)
 		{
 			int mid = (st2 + en2) / 2;
