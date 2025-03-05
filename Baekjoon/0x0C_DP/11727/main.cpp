@@ -4,7 +4,7 @@
  * GitHub      : https://github.com/suhwan22
  * Additional  : https://guiltless-break-8cc.notion.site/boj-11727
  * Created     : 2025-03-05 19:10:35
- * Updated     : 2025-03-05 19:10:35
+ * Updated     : 2025-03-05 21:58:04
  */
 
 #include <iostream>
