@@ -36,7 +36,7 @@ class SegmentTree
 		{
 			n = size;
 			tree.resize(4 * n);
-			build(arr, 1, 0, n - 1);
+			build(arr, 1, 1, n);
 		}
 
 		long long query(int node, int start, int end, int left, int right)
@@ -74,7 +74,7 @@ int main()
 {
 	cin.tie(0)->sync_with_stdio(0);
 	cin >> n >> m >> k;
-	for (long long i = 0; i < n; i++)
+	for (long long i = 1; i <= n; i++)
 		cin >> arr[i];
 	SegmentTree segTree(arr, n);
 	long long a, b, c;
