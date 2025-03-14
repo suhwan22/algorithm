@@ -2,7 +2,7 @@
  * Author      : suhwan22
  * Email       : ksuhwan22@gmail.com
  * GitHub      : https://github.com/suhwan22
- * Additional  : https://guiltless-break-8cc.notion.site/boj-1520
+ * Additional  : https://eventually-useful.tistory.com/3
  * Created     : 2025-03-13 00:31:32
  * Updated     : 2025-03-13 01:50:27
  */
